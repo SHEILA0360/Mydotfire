@@ -1,0 +1,23 @@
+return {
+	"scottmckendry/cyberdream.nvim",
+	lazy = false,
+	priority = 1000,
+	config = function()
+		require("cyberdream").setup({
+			variant = "dark",
+			--transparent = true,
+			italic_comments = true,
+			hide_fillchars = true,
+			terminal_colors = false,
+			cache = true,
+			overrides = function(c)
+				return {
+					CursorLine = { bg = c.bg },
+					CursorLineNr = { fg = c.magenta },
+				}
+			end,
+		})
+
+		vim.cmd("colorscheme cyberdream")
+	end,
+}
